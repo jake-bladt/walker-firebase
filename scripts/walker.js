@@ -1,6 +1,12 @@
-var walker = (function() {
+var walker = (function($, fbase) {
   
   return {
+    viewModel: (function() {
+
+      return {
+        currentUser: 
+      }
+    })(jQuery, firebase),
     loginViaGoogle: function() {
       var provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
