@@ -4,9 +4,9 @@ var walker = (function($, fbase) {
     viewModel: (function() {
 
       return {
-        currentUser: 
-      }
-    })(jQuery, firebase),
+        currentUser: fbase.auth().currentUser
+      };
+    })(),
     loginViaGoogle: function() {
       var provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
@@ -17,7 +17,7 @@ var walker = (function($, fbase) {
       });
     }
   }
-})();
+})(jQuery, firebase);
 
 $(document).ready(function() {
 
