@@ -1,3 +1,22 @@
+var walker = (function() {
+  
+  return {
+    loginViaGoogle: function() {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('https://www.googleapis.com/auth/plus.login');
+      firebase.auth().signInWithPopup(provider).then(function(result) { 
+        console.log("user: ", result.user);
+      }).catch(function(error) {
+        console.log("error: ", error);
+      });
+    }
+  }
+})();
+
 $(document).ready(function() {
-  console.log('Current user: ', firebase.auth().currentUser);
+
+  $('#loginLink').click(function(e) {
+    e.preventDefault();
+    walker.loginViaGoogle();
+  });
 });
