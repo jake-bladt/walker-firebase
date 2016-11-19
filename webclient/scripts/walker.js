@@ -1,19 +1,19 @@
 var walker = (function($, fbase) {
   
   return {
-    viewModel: (function() {
+    viewModel: {
+      currentUser: undefined
+    },
 
-      return {
-        currentUser: fbase.auth().currentUser
-      };
-    })(),
     loginViaGoogle: function() {
       var provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       firebase.auth().signInWithPopup(provider).then(function(result) { 
         console.log("user: ", result.user);
+        this.viewModel.currentUser = result.user;
       }).catch(function(error) {
         console.log("error: ", error);
+        this.viewModel.currentUser = undefined;
       });
     }
   }
