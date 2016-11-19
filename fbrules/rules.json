@@ -1,5 +1,9 @@
 {
-  "rules:" {
+  "rules": {
+    "public-data": {
+      "read":  true,
+      "write": false
+    }
 
   }
 }
