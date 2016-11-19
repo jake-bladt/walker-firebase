@@ -15,6 +15,12 @@ var walker = (function($, fbase) {
         console.log("error: ", error);
         this.viewModel.currentUser = undefined;
       });
+    },
+
+    updateUI: function() {
+      if(this.viewModel.currentUser) {
+        // Update UI
+      }
     }
   }
 })(jQuery, firebase);
