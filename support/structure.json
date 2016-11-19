@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "public-data": {
+      "read":  true,
+      "write": false
+    },
+    "steps-data": {
+      "$user_id": {
+        ".read":  "$user_id === auth.id",
+        ".write": "$user_id === auth.id"
+      }
+    }
+  }
+}
