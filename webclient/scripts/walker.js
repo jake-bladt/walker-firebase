@@ -10,16 +10,14 @@ var walker = (function($, fbase, hb) {
 
   fbase.initializeApp(firebaseConfig);
 
-  var initialViewModel =  {
-      currentUser: undefined,
-      stepCounts: [],
-      stepGoals:  []
-    };
-
   return {
     database: fbase.database(),
 
-    viewModel: function() { return initialViewModel; },
+    viewModel: {
+      currentUser: undefined,
+      stepCounts: [],
+      stepGoals:  []
+    },
 
     watchForUpdates: function() {
       if(this.viewModel.currentUser) {
@@ -30,7 +28,7 @@ var walker = (function($, fbase, hb) {
       }
     },
 
-    loginViaGoogle: function() {
+    loginViaGoogle: (function() {
       var provider = new fbase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       fbase.auth().signInWithPopup(provider).then(function(result) { 
@@ -39,7 +37,7 @@ var walker = (function($, fbase, hb) {
       }).catch(function(error) {
         console.log("error: ", error);
         this.viewModel.currentUser = undefined;
-      });
+      })).bind(viewModel);
     },
 
     updateUI: function() {
