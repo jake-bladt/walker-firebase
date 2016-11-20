@@ -37,8 +37,8 @@ var walker = (function($, fbase, hb) {
       }).catch(function(error) {
         console.log("error: ", error);
         this.currentUser = undefined;
-      })).bind(viewModel);
-    },
+      })
+    }).bind(viewModel);,
 
     updateUI: function() {
       if(this.viewModel.currentUser) {
