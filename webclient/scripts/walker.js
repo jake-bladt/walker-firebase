@@ -10,14 +10,16 @@ var walker = (function($, fbase, hb) {
 
   fbase.initializeApp(firebaseConfig);
 
-  return {
-    database: fbase.database(),
-
-    viewModel: {
+  var initialViewModel =  {
       currentUser: undefined,
       stepCounts: [],
       stepGoals:  []
-    },
+    };
+
+  return {
+    database: fbase.database(),
+
+    viewModel: function() { return initialViewModel; },
 
     watchForUpdates: function() {
       if(this.viewModel.currentUser) {
