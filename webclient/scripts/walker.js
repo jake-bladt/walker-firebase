@@ -14,11 +14,18 @@ var walker = (function($, fbase) {
     database: fbase.database(),
 
     viewModel: {
-      currentUser: undefined
+      currentUser: undefined,
+      stepCounts: [],
+      stepGoals: []
     },
 
     watchForUpdates: function() {
-
+      if(this.viewModel.currentUser) {
+        var stepsCountsRef = this.database.ref('steps-data/' + currentUser);
+        stepsCountsRef.on("value", function(snapshot) {
+          console.log(JSON.stringify(snapshot));
+        });
+      }
     },
 
     loginViaGoogle: function() {
