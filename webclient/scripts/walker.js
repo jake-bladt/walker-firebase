@@ -33,10 +33,10 @@ var walker = (function($, fbase, hb) {
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       fbase.auth().signInWithPopup(provider).then(function(result) { 
         console.log("user: ", result.user);
-        this.viewModel.currentUser = result.user;
+        this.currentUser = result.user;
       }).catch(function(error) {
         console.log("error: ", error);
-        this.viewModel.currentUser = undefined;
+        this.currentUser = undefined;
       })).bind(viewModel);
     },
 
