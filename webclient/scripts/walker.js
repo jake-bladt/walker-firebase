@@ -1,8 +1,22 @@
 var walker = (function($, fbase) {
   
+  var firebaseConfig = {
+    apiKey: "AIzaSyDE4EuRBm56SDJXxJS9omvsIDL5yFhQkck",
+    authDomain: "walker-firebase.firebaseapp.com",
+    databaseURL: "https://walker-firebase.firebaseio.com",
+    storageBucket: "walker-firebase.appspot.com",
+    messagingSenderId: "545290483394"
+  };
+
+  fbase.initializeApp(firebaseConfig);
+
   return {
     viewModel: {
       currentUser: undefined
+    },
+
+    watchForUpdates: function() {
+
     },
 
     loginViaGoogle: function() {
@@ -30,5 +44,6 @@ $(document).ready(function() {
   $('#loginLink').click(function(e) {
     e.preventDefault();
     walker.loginViaGoogle();
+    walker.updateUI();
   });
 });
