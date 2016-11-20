@@ -1,4 +1,4 @@
-var walker = (function($, fbase) {
+var walker = (function($, fbase, hb) {
   
   var firebaseConfig = {
     apiKey: "AIzaSyDE4EuRBm56SDJXxJS9omvsIDL5yFhQkck",
@@ -46,7 +46,7 @@ var walker = (function($, fbase) {
       }
     }
   }
-})(jQuery, firebase);
+})(jQuery, firebase, Handlebars);
 
 $(document).ready(function() {
 
