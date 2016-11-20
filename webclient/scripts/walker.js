@@ -16,7 +16,7 @@ var walker = (function($, fbase) {
     viewModel: {
       currentUser: undefined,
       stepCounts: [],
-      stepGoals: []
+      stepGoals:  []
     },
 
     watchForUpdates: function() {
