@@ -11,6 +11,8 @@ var walker = (function($, fbase) {
   fbase.initializeApp(firebaseConfig);
 
   return {
+    database: fbase.database(),
+
     viewModel: {
       currentUser: undefined
     },
@@ -20,9 +22,9 @@ var walker = (function($, fbase) {
     },
 
     loginViaGoogle: function() {
-      var provider = new firebase.auth.GoogleAuthProvider();
+      var provider = new fbase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
-      firebase.auth().signInWithPopup(provider).then(function(result) { 
+      fbase.auth().signInWithPopup(provider).then(function(result) { 
         console.log("user: ", result.user);
         this.viewModel.currentUser = result.user;
       }).catch(function(error) {
