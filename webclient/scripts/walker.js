@@ -13,6 +13,16 @@ var walker = (function($, fbase, hb) {
   return {
     database: fbase.database(),
 
+    assignUser: function(user) {
+      this.currentUser = user;
+      usersRef = this.database.ref('users/');
+      usersRef.child(user.uid).once('value', function(snapshot) {
+        if(snapshot.val() === null) {
+          // add user to Firebase DB.
+        }
+      });
+    },
+
     watchForUpdates: function() {
       if(this.viewModel.currentUser) {
         var stepsCountsRef = this.database.ref('steps-data/' + currentUser);
@@ -26,7 +36,7 @@ var walker = (function($, fbase, hb) {
       var provider = new fbase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       fbase.auth().signInWithPopup(provider).then(function(result) { 
-        this.currentUser = result.user;
+        this.assignUser(result.user);
       }).catch(function(error) {
         console.log("error: ", error);
         this.currentUser = undefined;
