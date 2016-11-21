@@ -9,6 +9,12 @@
         ".read":  "$user_id === auth.id",
         ".write": "$user_id === auth.id"
       }
+    },
+    "users": {
+      "$user_id": {
+        ".read":  "$user_id === auth.id",
+        ".write": "$user_id === auth.id"
+      }
     }
   }
 }
