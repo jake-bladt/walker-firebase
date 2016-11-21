@@ -20,11 +20,10 @@ var walker = (function($, fbase, hb) {
       usersRef.child(user.uid).once('value', function(snapshot) {
         if(snapshot.val() === null) {
           usersRef.put(user.uid, {
-              uid: user.uid
-            }
+            uid: user.uid
           });
         }
-      });
+      })
     },
 
     watchForUpdates: function() {
