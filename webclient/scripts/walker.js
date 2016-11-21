@@ -10,16 +10,8 @@ var walker = (function($, fbase, hb) {
 
   fbase.initializeApp(firebaseConfig);
 
-  var pageData = {
-    currentUser: undefined,
-    stepCounts: [],
-    stepGoals:  []
-  };
-
   return {
     database: fbase.database(),
-
-    viewModel: pageData,
 
     watchForUpdates: function() {
       if(this.viewModel.currentUser) {
@@ -48,6 +40,12 @@ var walker = (function($, fbase, hb) {
     }
   }
 })(jQuery, firebase, Handlebars);
+
+walker.viewModel = {
+    currentUser: undefined,
+    stepCounts: [],
+    stepGoals:  []
+  };
 
 $(document).ready(function() {
 
