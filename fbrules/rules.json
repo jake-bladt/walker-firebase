@@ -1,8 +1,8 @@
 {
   "rules": {
     "public-data": {
-      "read":  true,
-      "write": false
+      ".read":  true,
+      ".write": false
     },
     "steps-data": {
       "$user_id": {
