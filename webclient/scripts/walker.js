@@ -42,9 +42,8 @@ var walker = (function($, fbase, hb) {
         this.assignUser(result.user);
       }).catch(function(error) {
         console.log("error: ", error);
-        this.currentUser = undefined;
       })
-    }).bind(pageData),
+    }),
 
     updateUI: function() {
       if(this.viewModel.currentUser) {
