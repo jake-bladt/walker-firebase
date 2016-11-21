@@ -15,10 +15,15 @@ var walker = (function($, fbase, hb) {
 
     assignUser: function(user) {
       this.currentUser = user;
-      usersRef = this.database.ref('users/');
+      console.log(user);
+      usersRef = this.database.child('users');
       usersRef.child(user.uid).once('value', function(snapshot) {
         if(snapshot.val() === null) {
-          // add user to Firebase DB.
+          usersRef.put(user.uid, {
+            {
+              uid: user.uid
+            }
+          });
         }
       });
     },
