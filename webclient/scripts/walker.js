@@ -20,7 +20,7 @@ var walker = (function($, fbase, hb) {
       var userRef = usersRef.child(user.uid);
       userRef.once('value', function(snapshot) {
         if(snapshot.val() === null) {
-          usersRef.put(user.uid, {
+          usersRef.set(user.uid, {
             uid: user.uid
           });
         }
