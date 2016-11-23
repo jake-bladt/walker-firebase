@@ -14,7 +14,6 @@ var walker = (function($, fbase, hb) {
     database: fbase.database(),
 
     assignUser: function(user) {
-      console.log(user);
       this.viewModel.currentUser = {
         uid: user.uid,
         displayName: user.providerData[0].displayName,
@@ -42,7 +41,7 @@ var walker = (function($, fbase, hb) {
           walker.assignUser(result.user);
         }).
         catch(function(reason) {
-          console.log("error: ", reason);
+          console.error("error: ", reason);
         })
     }
   }  
