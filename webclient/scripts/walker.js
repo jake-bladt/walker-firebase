@@ -16,8 +16,8 @@ var walker = (function($, fbase, hb) {
     assignUser: function(user) {
       this.viewModel.currentUser = user;
       console.log(this.viewModel.currentUser);
-      var usersRef = this.database.ref('users/' + user.uid);
-      usersRef.once('value', function(snapshot) {
+      var userRef = this.database.ref('users/' + user.uid);
+      userRef.once('value', function(snapshot) {
         if(snapshot.val() === null) {
           usersRef.put(user.uid, {
             uid: user.uid
