@@ -13,6 +13,20 @@ var walker = (function($, fbase, hb) {
   return {
     database: fbase.database(),
 
+    assignUser: function(user) {
+      console.log("this:", this);
+      this.currentUser = user;
+      console.log(user);
+      usersRef = this.database.child('users');
+      usersRef.child(user.uid).once('value', function(snapshot) {
+        if(snapshot.val() === null) {
+          usersRef.put(user.uid, {
+            uid: user.uid
+          });
+        }
+      })
+    },
+
     viewModel: {
       currentUser: undefined,
       stepCounts: [],
@@ -24,7 +38,8 @@ var walker = (function($, fbase, hb) {
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       fbase.auth().signInWithPopup(provider).
         then(function(result) {
-          walker.viewModel.currentUser = result.user;
+          // walker.viewModel.currentUser = result.user;
+          walker.assignUser(result.user);
           console.log(walker.viewModel.currentUser);
         }).
         catch(function(reason) {
