@@ -20,8 +20,8 @@ var walker = (function($, fbase, hb) {
         then(function(result) { 
           this.viewModel.currentUser(result.user);
         }).
-        catch(function(error) {
-          console.log("error: ", error);
+        catch(function(reason) {
+          console.log("error: ", reason);
         })
     }
 })(jQuery, firebase, Handlebars);
