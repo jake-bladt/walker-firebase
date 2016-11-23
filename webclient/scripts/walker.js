@@ -13,6 +13,12 @@ var walker = (function($, fbase, hb) {
   return {
     database: fbase.database(),
 
+    viewModel: {
+      currentUser: undefined,
+      stepCounts: [],
+      stepGoals:  []
+    },
+
     loginViaGoogle: function() {
       var provider = new fbase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
@@ -26,13 +32,6 @@ var walker = (function($, fbase, hb) {
     }
   }  
 })(jQuery, firebase, Handlebars);
-
-walker.viewModel = {
-    currentUser: undefined,
-    stepCounts: [],
-    stepGoals:  []
-};
-walker.loginViaGoogle = walker.loginViaGoogle.bind(walker);
 
 $(document).ready(function() {
 
