@@ -11,8 +11,6 @@ var walker = (function($, fbase, hb) {
   fbase.initializeApp(firebaseConfig);
 
   return {
-    that: this,
-
     database: fbase.database(),
 
     viewModel: {
@@ -27,7 +25,6 @@ var walker = (function($, fbase, hb) {
       fbase.auth().signInWithPopup(provider).
         then(function(result) {
           walker.viewModel.currentUser = result.user;
-          console.log("that", that);
           console.log(walker.viewModel.currentUser);
         }).
         catch(function(reason) {
