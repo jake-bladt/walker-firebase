@@ -38,6 +38,6 @@ $(document).ready(function() {
   $('#loginLink').click(function(e) {
     e.preventDefault();
     walker.loginViaGoogle();
-    console.log(walker.viewModel);
+    console.log("viewmodel: ", walker.viewModel);
   });
 });
