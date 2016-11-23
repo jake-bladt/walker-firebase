@@ -32,7 +32,8 @@ walker.viewModel = {
     currentUser: undefined,
     stepCounts: [],
     stepGoals:  []
-  };
+};
+walker.loginViaGoogle = walker.loginViaGoogle.bind(walker);
 
 $(document).ready(function() {
 
