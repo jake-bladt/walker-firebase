@@ -17,7 +17,8 @@ var walker = (function($, fbase, hb) {
       var provider = new fbase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       fbase.auth().signInWithPopup(provider).
-        then(function(result) { 
+        then(function(result) {
+          console.log("walker: ", walker); 
           this.viewModel.currentUser = result.user;
         }).
         catch(function(reason) {
