@@ -14,7 +14,6 @@ var walker = (function($, fbase, hb) {
     database: fbase.database(),
 
     assignUser: function(user) {
-      console.log("this:", this);
       this.viewModel.currentUser = user;
       usersRef = this.database.ref('users');
       usersRef.child(user.uid).once('value', function(snapshot) {
@@ -37,9 +36,7 @@ var walker = (function($, fbase, hb) {
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       fbase.auth().signInWithPopup(provider).
         then(function(result) {
-          // walker.viewModel.currentUser = result.user;
           walker.assignUser(result.user);
-          console.log(walker.viewModel.currentUser);
         }).
         catch(function(reason) {
           console.log("error: ", reason);
