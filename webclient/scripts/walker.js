@@ -23,7 +23,7 @@ var walker = (function($, fbase, hb) {
       var userRef = this.database.ref('users/' + user.uid);
       userRef.once('value', function(snapshot) {
         if(snapshot.val() === null) {
-          userRef.set(this.viewModel.currentUser);
+          userRef.set(walker.viewModel.currentUser);
         }
       })
     },
