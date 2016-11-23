@@ -21,7 +21,9 @@ var walker = (function($, fbase, hb) {
       userRef.once('value', function(snapshot) {
         if(snapshot.val() === null) {
           userRef.set({
-            uid: user.uid
+            uid: user.uid,
+            displayName: user.providerData[0].displayName,
+            profilePicture: user.providerData[0].photoURL
           });
         }
       })
