@@ -15,16 +15,15 @@ var walker = (function($, fbase, hb) {
 
     assignUser: function(user) {
       console.log(user);
-      this.viewModel.currentUser = user;
-      console.log("uid: ", this.viewModel.currentUser.uid);
+      this.viewModel.currentUser = {
+        uid: user.uid,
+        displayName: user.providerData[0].displayName,
+        profilePicture: user.providerData[0].photoURL
+      };
       var userRef = this.database.ref('users/' + user.uid);
       userRef.once('value', function(snapshot) {
         if(snapshot.val() === null) {
-          userRef.set({
-            uid: user.uid,
-            displayName: user.providerData[0].displayName,
-            profilePicture: user.providerData[0].photoURL
-          });
+          userRef.set(this.viewModel.currentUser);
         }
       })
     },
