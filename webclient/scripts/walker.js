@@ -16,11 +16,13 @@ var walker = (function($, fbase, hb) {
     loginViaGoogle: function() {
       var provider = new fbase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
-      fbase.auth().signInWithPopup(provider).then(function(result) { 
-        this.viewModel.currentUser(result.user);
-      }).catch(function(error) {
-        console.log("error: ", error);
-      }
+      fbase.auth().signInWithPopup(provider).
+        then(function(result) { 
+          this.viewModel.currentUser(result.user);
+        }).
+        catch(function(error) {
+          console.log("error: ", error);
+        })
     }
 })(jQuery, firebase, Handlebars);
 
