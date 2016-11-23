@@ -24,6 +24,7 @@ var walker = (function($, fbase, hb) {
           console.log("error: ", reason);
         })
     }
+  }  
 })(jQuery, firebase, Handlebars);
 
 walker.viewModel = {
