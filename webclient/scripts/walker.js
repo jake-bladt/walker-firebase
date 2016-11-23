@@ -14,12 +14,13 @@ var walker = (function($, fbase, hb) {
     database: fbase.database(),
 
     assignUser: function(user) {
+      var self = this;
       this.viewModel.currentUser = {
         uid: user.uid,
         displayName: user.providerData[0].displayName,
         profilePicture: user.providerData[0].photoURL
       };
-      var userRef = this.database.ref('users/' + user.uid);
+      var userRef = self.database.ref('users/' + user.uid);
       userRef.once('value', function(snapshot) {
         if(snapshot.val() === null) {
           userRef.set(walker.viewModel.currentUser);
@@ -34,11 +35,12 @@ var walker = (function($, fbase, hb) {
     },
 
     loginViaGoogle: function() {
+      var self = this;
       var provider = new fbase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       fbase.auth().signInWithPopup(provider).
         then(function(result) {
-          walker.assignUser(result.user);
+          self.assignUser(result.user);
         }).
         catch(function(reason) {
           console.error("error: ", reason);
