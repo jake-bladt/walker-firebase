@@ -14,6 +14,7 @@ var walker = (function($, fbase, hb) {
     database: fbase.database(),
 
     assignUser: function(user) {
+      console.log(user);
       this.viewModel.currentUser = user;
       console.log("uid: ", this.viewModel.currentUser.uid);
       var userRef = this.database.ref('users/' + user.uid);
