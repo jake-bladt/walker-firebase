@@ -19,7 +19,7 @@ var walker = (function($, fbase, hb) {
       var userRef = this.database.ref('users/' + user.uid);
       userRef.once('value', function(snapshot) {
         if(snapshot.val() === null) {
-          usersRef.put(user.uid, {
+          userRef.put(user.uid, {
             uid: user.uid
           });
         }
