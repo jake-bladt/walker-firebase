@@ -81,12 +81,14 @@ var walker = (function($, fbase, hb) {
       placeholder.innerHTML = output;
 
       // create chart with circliful
+      var today = walker.viewModel.today;
+      var pct = Math.min(1.0 * today.stepsCount / today.stepsGoal, 100.0);
       $('#daily-goal').circliful({
         animationStep: 5,
         foregroundBorderWidth: 10,
         backgroundBorderWidth: 10,
         foregroundColor: 'green',
-        percent: 72
+        percent: pct
       });
     }
   }  
