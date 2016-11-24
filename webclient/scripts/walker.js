@@ -35,7 +35,11 @@ var walker = (function($, fbase, hb) {
     viewModel: {
       currentUser: undefined,
       stepCounts: [],
-      stepGoals:  []
+      stepGoals:  [],
+      today: {
+        stepCount: 0,
+        stepGoal: 10000
+      }
     },
 
     loginViaGoogle: function(callback) {
@@ -74,10 +78,9 @@ var walker = (function($, fbase, hb) {
 
 $(document).ready(function() {
 
-  console.log(walker.getDateId());
-
   $('#loginLink').click(function(e) {
     e.preventDefault();
     walker.loginViaGoogle(walker.updateUI);
   });
+
 });
