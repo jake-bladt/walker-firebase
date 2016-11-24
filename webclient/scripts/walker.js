@@ -34,13 +34,14 @@ var walker = (function($, fbase, hb) {
       stepGoals:  []
     },
 
-    loginViaGoogle: function() {
+    loginViaGoogle: function(callback) {
       var self = this;
       var provider = new fbase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/plus.login');
       fbase.auth().signInWithPopup(provider).
         then(function(result) {
           self.assignUser(result.user);
+          callback();
         }).
         catch(function(reason) {
           console.error("error: ", reason);
@@ -63,6 +64,6 @@ $(document).ready(function() {
 
   $('#loginLink').click(function(e) {
     e.preventDefault();
-    walker.loginViaGoogle();
+    walker.loginViaGoogle(walker.updateUI);
   });
 });
