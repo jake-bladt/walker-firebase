@@ -18,6 +18,11 @@ h2 {
   float: right;
 }
 
+.profile-picture {
+  max-width: 120px;
+  max-height: 120px;
+}
+
 a:visited {
   text-decoration: none;
   color: yellow;
