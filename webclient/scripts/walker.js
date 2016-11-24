@@ -32,6 +32,17 @@ var walker = (function($, fbase, hb) {
       })
     },
 
+    attachDataEntryHandlers: function() {
+
+      $('#steps-count').keyup(function(event) {
+        if(event.keyCode === 13) {  // Enter Key
+          walker.viewModel.today.stepsCount = Number($('#steps-count').val());
+          console.log(walker.viewModel.today.stepsCount);
+        };
+      });
+      
+    },
+
     trackTodaysData: function() {
       var user = walker.viewModel.currentUser;
       var dateId = walker.getDateId();
@@ -46,6 +57,7 @@ var walker = (function($, fbase, hb) {
           walker.viewModel.today = snapVal;
           walker.updateUI();
         }
+        walker.attachDataEntryHandlers();
       });
     },
 
@@ -71,17 +83,6 @@ var walker = (function($, fbase, hb) {
         catch(function(reason) {
           console.error("error: ", reason);
         })
-    },
-
-    attachDataEntryHandlers: function() {
-
-      $('#steps-count').keyup(function(event) {
-        if(event.keyCode === 13) {  // Enter Key
-          walker.viewModel.today.stepsCount = Number($('#steps-count').val());
-          console.log(walker.viewModel.today.stepsCount);
-        };
-      });
-      
     },
 
     updateUI: function() {
