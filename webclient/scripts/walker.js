@@ -47,6 +47,7 @@ var walker = (function($, fbase, hb) {
     },
 
     updateUI: function() {
+      // bind with Handlebars
       var src = document.getElementById('maincontent_t').innerHTML;
       var template = hb.compile(src);
       var output = template(walker.viewModel);
@@ -54,6 +55,13 @@ var walker = (function($, fbase, hb) {
       var placeholder = document.getElementById('maincontent');
       placeholder.innerHTML = output;
 
+      // create chart with circliful
+      $('#daily-goal').circliful({
+        animationStep: 5,
+        foregroundBorderWidth: 5,
+        backgroundBorderWidth: 15,
+        percent: 72
+      });
     }
   }  
 })(jQuery, firebase, Handlebars);

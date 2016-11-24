@@ -21,7 +21,12 @@ h2 {
 .profile-picture {
   max-width: 120px;
   max-height: 120px;
-  margin-right: 60px;
+  margin-right: 20px;
+}
+
+.ring-chart {
+  width: 220px;
+  height: 220px;
 }
 
 #steps-count, #steps-goal, #steps-divider {
