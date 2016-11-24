@@ -83,8 +83,8 @@ var walker = (function($, fbase, hb) {
       // create chart with circliful
       $('#daily-goal').circliful({
         animationStep: 5,
-        foregroundBorderWidth: 40,
-        backgroundBorderWidth: 40,
+        foregroundBorderWidth: 10,
+        backgroundBorderWidth: 10,
         foregroundColor: 'green',
         percent: 72
       });
