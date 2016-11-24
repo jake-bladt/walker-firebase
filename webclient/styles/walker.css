@@ -21,6 +21,23 @@ h2 {
 .profile-picture {
   max-width: 120px;
   max-height: 120px;
+  margin-right: 60px;
+}
+
+.steps-count, .steps-goal, .steps-divider {
+  vertical-align: top;
+  font-size: 36pt;
+}
+
+.steps-divider {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.steps-count, .steps-goal {
+  width: 200px;
+  background: black;
+  color: yellow;
 }
 
 a:visited {
@@ -29,5 +46,5 @@ a:visited {
 }
 
 a:hover {
-  cursor: color: orange;
+  color: orange;
 }
