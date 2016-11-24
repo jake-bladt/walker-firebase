@@ -43,6 +43,7 @@ var walker = (function($, fbase, hb) {
           stepsRef.set(walker.viewModel.today);
         } else {
           walker.viewModel.today = snapVal;
+          walker.updateUI();
         }
       });
     },
@@ -95,7 +96,7 @@ $(document).ready(function() {
 
   $('#loginLink').click(function(e) {
     e.preventDefault();
-    walker.loginViaGoogle(walker.updateUI);
+    walker.loginViaGoogle(walker.trackTodaysData);
   });
 
 });
