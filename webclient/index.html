@@ -6,16 +6,16 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="scripts/walker.js"></script>
+    <script id="maincontent_t" type="template/handlebars">
+      <div class="display-name">{{displayName}}</div>
+      <img src="{{profilePicture}}" class="profile-picture" alt="{{displayName}}"/>
+    </script>
   </head>
   <body>
     <div id="maincontent">
       <a href="#" id="loginLink">login via Google</a>
       <h1>Welcome to Walker, stranger.</h1>
       <h2>Walker - because the first million steps are always the hardest.</h2>
-    </div>
-    <div id="maincontent_h">
-      <div class="display-name">{{displayName}}</div>
-      <img src="{{profilePicture}}" class="profile-picture" alt="{{displayName}}"/>
     </div>
   </body>
 </html>
