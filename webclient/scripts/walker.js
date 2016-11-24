@@ -50,6 +50,7 @@ var walker = (function($, fbase, hb) {
       var src = document.getElementById('maincontent_t').innerHTML;
       var template = hb.compile(src);
       var output = template(walker.viewModel);
+      console.log('viewModel', walker.viewModel);
       console.log('output', output);
 
       var placeholder = document.getElementById('maincontent');
