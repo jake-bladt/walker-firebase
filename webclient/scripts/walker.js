@@ -35,6 +35,7 @@ var walker = (function($, fbase, hb) {
     trackTodaysData: function() {
       var user = walker.viewModel.currentUser;
       var dateId = walker.getDateId();
+      walker.viewModel.dateId = dateId;
 
       var stepsRef = walker.database.ref('steps-data/' + user.uid + '/' + dateId);
       stepsRef.on('value', function(snapshot) {
@@ -49,6 +50,7 @@ var walker = (function($, fbase, hb) {
     },
 
     viewModel: {
+      dateId: '00000000',
       currentUser: undefined,
       stepCounts: [],
       stepGoals:  [],
