@@ -30,7 +30,7 @@ h2 {
 }
 
 #steps-count, #steps-goal, #steps-divider {
-  border: 1px solid black;
+  border: 1px solid #0a0a10;
   vertical-align: top;
   font-size: 36pt;
 }
@@ -38,7 +38,7 @@ h2 {
 
 #steps-count, #steps-goal {
   width: 200px;
-  background: black;
+  background: #0a0a10;
 }
 
 #steps-count {
