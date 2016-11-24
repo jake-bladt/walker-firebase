@@ -69,6 +69,8 @@ var walker = (function($, fbase, hb) {
 
 $(document).ready(function() {
 
+  console.log(Date.now().toLocaleDateString('en-US'));
+
   $('#loginLink').click(function(e) {
     e.preventDefault();
     walker.loginViaGoogle(walker.updateUI);
