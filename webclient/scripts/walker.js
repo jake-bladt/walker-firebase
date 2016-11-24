@@ -82,7 +82,7 @@ var walker = (function($, fbase, hb) {
 
       // create chart with circliful
       var today = walker.viewModel.today;
-      var pct = Math.min(1.0 * today.stepsCount / today.stepsGoal, 100.0);
+      var pct = Math.min(100.0 * today.stepsCount / today.stepsGoal, 100.0);
       $('#daily-goal').circliful({
         animationStep: 5,
         foregroundBorderWidth: 10,
