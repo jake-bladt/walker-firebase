@@ -73,6 +73,17 @@ var walker = (function($, fbase, hb) {
         })
     },
 
+    attachDataEntryHandlers: function() {
+
+      $('#steps-count').keyup(function(event) {
+        if(event.keyCode === 13) {  // Enter Key
+          walker.viewModel.today.stepsCount = Number($('#steps-count').val());
+          console.log(walker.viewModel.today.stepsCount);
+        };
+      });
+      
+    },
+
     updateUI: function() {
       // bind with Handlebars
       var src = document.getElementById('maincontent_t').innerHTML;
@@ -101,13 +112,6 @@ $(document).ready(function() {
   $('#loginLink').click(function(event) {
     event.preventDefault();
     walker.loginViaGoogle(walker.trackTodaysData);
-  });
-
-  $('#steps-count').keyup(function(event) {
-    if(event.keyCode === 13) {  // Enter Key
-      walker.viewModel.today.stepsCount = Number($('#steps-count').val());
-      console.log(walker.viewModel.today.stepsCount);
-    };
   });
 
 });
