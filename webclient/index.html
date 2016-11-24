@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="scripts/walker.js"></script>
     <script id="maincontent_t" type="template/handlebars">
-      <div class="display-name">{{currentUser.displayName}}</div>
+      <p class="display-name">{{currentUser.displayName}}</p>
       <img src="{{currentUser.profilePicture}}" class="profile-picture" alt="{{currentUser.displayName}}"/>
       <input type="text" class="steps-count"/>
       <input type="text" class="steps-goal"/>
@@ -18,7 +18,9 @@
   </head>
   <body>
     <div id="maincontent">
-      <a href="#" id="loginLink" class="display-name">login via Google</a>
+      <p class="display-name">
+        <a href="#" id="loginLink">login via Google</a>
+      </p>
       <h1>Welcome to Walker, stranger.</h1>
       <h2>because the first million steps are always the hardest.</h2>
     </div>

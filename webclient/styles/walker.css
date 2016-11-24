@@ -14,8 +14,8 @@ h2 {
   font-style: italic;
 }
 
-.login-link {
-  text-align: right;
+.display-name {
+  float: right;
 }
 
 a:visited {
