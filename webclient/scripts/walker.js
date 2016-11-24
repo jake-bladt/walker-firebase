@@ -33,7 +33,18 @@ var walker = (function($, fbase, hb) {
     },
 
     trackTodaysData: function() {
-      var stepsRef = walker.database.ref('steps-data/');
+      var user = walker.viewModel.currentUser;
+      var dateId = walker.getDateId();
+
+      var stepsRef = walker.database.ref('steps-data/' + user.uid + '/' + dateId);
+      stepsRef.on('value', function(snapshot) {
+        var snapVal = snapshot.val();
+        if(snapVal === null) {
+          stepsRef.set(walker.viewModel.today);
+        } else {
+          walker.viewModel.today = snapVal;
+        }
+      });
     },
 
     viewModel: {
