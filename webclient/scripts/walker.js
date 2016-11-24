@@ -19,7 +19,7 @@ var walker = (function($, fbase, hb) {
     },
 
     assignUser: function(user) {
-      this.viewModel.currentUser = {
+      walker.viewModel.currentUser = {
         uid: user.uid,
         displayName: user.providerData[0].displayName,
         profilePicture: user.providerData[0].photoURL
@@ -32,13 +32,17 @@ var walker = (function($, fbase, hb) {
       })
     },
 
+    trackTodaysData: function() {
+      var stepsRef = walker.database.ref('steps-data/');
+    },
+
     viewModel: {
       currentUser: undefined,
       stepCounts: [],
       stepGoals:  [],
       today: {
         stepCount: 0,
-        stepGoal: 10000
+        stepGoal:  10000
       }
     },
 
