@@ -25,6 +25,7 @@ h2 {
 }
 
 #steps-count, #steps-goal, #steps-divider {
+  border: 1px solid black;
   vertical-align: top;
   font-size: 36pt;
 }
