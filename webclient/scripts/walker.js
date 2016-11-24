@@ -53,8 +53,8 @@ var walker = (function($, fbase, hb) {
       stepCounts: [],
       stepGoals:  [],
       today: {
-        stepCount: 0,
-        stepGoal:  10000
+        stepsCount: 7200,
+        stepsGoal:  10000
       }
     },
 
