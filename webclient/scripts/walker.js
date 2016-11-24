@@ -96,9 +96,13 @@ var walker = (function($, fbase, hb) {
 
 $(document).ready(function() {
 
-  $('#loginLink').click(function(e) {
-    e.preventDefault();
+  $('#loginLink').click(function(event) {
+    event.preventDefault();
     walker.loginViaGoogle(walker.trackTodaysData);
+  });
+
+  $('#steps-count').keyup(function(event) {
+
   });
 
 });
