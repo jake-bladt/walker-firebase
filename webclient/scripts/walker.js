@@ -69,7 +69,9 @@ var walker = (function($, fbase, hb) {
 
 $(document).ready(function() {
 
-  console.log(Date.now().toLocaleDateString('en-US'));
+  var now = new Date();
+  console.log(now.toLocaleDateString('en-US'));
+  console.log(now.getHours());
 
   $('#loginLink').click(function(e) {
     e.preventDefault();
