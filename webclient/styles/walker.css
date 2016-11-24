@@ -15,7 +15,7 @@ h2 {
 }
 
 .login-link {
-  float: right;
+  text-align: right;
 }
 
 a:visited {
