@@ -35,8 +35,8 @@ h2 {
   background: black;
 }
 
-.steps-count: {
-  color: white;
+.steps-count {
+  color: yellow;
   text-align: right;
 }
 
