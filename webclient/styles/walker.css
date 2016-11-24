@@ -2,3 +2,18 @@ body {
   background: black;
   color: white
 }
+
+h1 {
+  font-size: 32pt;
+  font-family: 'Lato';
+}
+
+h2 {
+  font-size: 24pt;
+  font-family: 'Lato'
+}
+
+a.login-link {
+  text-decoration: none;
+  color: yellow;
+}
