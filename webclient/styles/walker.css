@@ -1,19 +1,27 @@
 body {
   background: black;
-  color: white
+  color: white;
+  font-family: Lato;
+  padding: 20pt;
 }
 
 h1 {
   font-size: 32pt;
-  font-family: 'Lato';
 }
 
 h2 {
   font-size: 24pt;
-  font-family: 'Lato'
 }
 
-a.login-link {
+.login-link {
+  float: right;
+}
+
+a:visited {
   text-decoration: none;
   color: yellow;
+}
+
+a:hover {
+  cursor: color: orange;
 }
