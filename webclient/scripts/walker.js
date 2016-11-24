@@ -49,12 +49,10 @@ var walker = (function($, fbase, hb) {
     },
 
     updateUI: function() {
+      var self = this;
       var src = document.getElementById('maincontent_t').innerHTML;
       var template = hb.compile(src);
-      var output = template(this.viewModel);
-      console.log('src', src);
-      console.log('template', template);
-      console.log('output', output);
+      var output = template(self.viewModel);
 
       var placeholder = document.getElementById('maincontent');
       placeholder.innerHTML = output;
