@@ -102,7 +102,10 @@ $(document).ready(function() {
   });
 
   $('#steps-count').keyup(function(event) {
-
+    if(event.keyCode === 13) {  // Enter Key
+      walker.viewModel.today.stepsCount = Number($('#steps-count').val());
+      console.log(walker.viewModel.today.stepsCount);
+    };
   });
 
 });
