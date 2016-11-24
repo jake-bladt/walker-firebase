@@ -13,6 +13,11 @@ var walker = (function($, fbase, hb) {
   return {
     database: fbase.database(),
 
+    getDateId: function() {
+      var now = new Date();
+      return (now.getYear() + 1900) * 10000 + now.getMonth() * 100 + now.getDate();
+    },
+
     assignUser: function(user) {
       this.viewModel.currentUser = {
         uid: user.uid,
@@ -69,9 +74,7 @@ var walker = (function($, fbase, hb) {
 
 $(document).ready(function() {
 
-  var now = new Date();
-  console.log(now.toLocaleDateString('en-US'));
-  console.log(now.getHours());
+  console.log(walker.getDateId());
 
   $('#loginLink').click(function(e) {
     e.preventDefault();
