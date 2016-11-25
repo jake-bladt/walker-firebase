@@ -40,6 +40,13 @@ var walker = (function($, fbase, hb) {
           walker.updateToday();
         };
       });
+
+      $('#steps-goal').keyup(function(event) {
+        if(event.keyCode === 13) {  // Enter Key
+          walker.viewModel.today.stepsGoal = Number($('#steps-goal').val());
+          walker.updateToday();
+        };
+      });
       
     },
 
