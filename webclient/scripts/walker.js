@@ -15,7 +15,7 @@ var walker = (function($, fbase, hb) {
 
     getDateId: function() {
       var now = new Date();
-      return (now.getYear() + 1900) * 10000 + now.getMonth() * 100 + now.getDate();
+      return (now.getYear() + 1900) * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
     },
 
     assignUser: function(user) {
