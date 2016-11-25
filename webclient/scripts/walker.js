@@ -52,7 +52,7 @@ var walker = (function($, fbase, hb) {
 
     updateToday: function() {
       var stepsRef = walker.database.ref('steps-data/' + 
-        walker.viewModel.currentUser.user.uid + '/' + 
+        walker.viewModel.currentUser.uid + '/' + 
         walker.viewModel.today.dateId);
         stepsRef.set(walker.viewModel.today);
     },
