@@ -37,10 +37,17 @@ var walker = (function($, fbase, hb) {
       $('#steps-count').keyup(function(event) {
         if(event.keyCode === 13) {  // Enter Key
           walker.viewModel.today.stepsCount = Number($('#steps-count').val());
-          console.log(walker.viewModel.today.stepsCount);
+          walker.updateToday();
         };
       });
       
+    },
+
+    updateToday: function() {
+      var stepsRef = walker.database.ref('steps-data/' + 
+        walker.viewModel.currentUser.user.uid + '/' + 
+        walker.viewModel.today.dateId);
+        stepsRef.set(walker.viewModel.today);
     },
 
     trackTodaysData: function() {
