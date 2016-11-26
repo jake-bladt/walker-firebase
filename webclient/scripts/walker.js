@@ -99,11 +99,6 @@ var walker = (function($, fbase, hb) {
         })
     },
 
-    template: (function() {
-      var src = document.getElementById('maincontent_t').innerHTML;
-      return hb.compile(src);
-    })(),
-
     updateUI: function() {
       var output = walker.template(walker.viewModel);
       var placeholder = document.getElementById('maincontent');
@@ -124,6 +119,11 @@ var walker = (function($, fbase, hb) {
 })(jQuery, firebase, Handlebars);
 
 $(document).ready(function() {
+
+  walker.template = (function() {
+    var src = document.getElementById('maincontent_t').innerHTML;
+    return hb.compile(src);
+  })();
 
   $('#loginLink').click(function(event) {
     event.preventDefault();
