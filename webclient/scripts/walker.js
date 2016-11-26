@@ -120,10 +120,10 @@ var walker = (function($, fbase, hb) {
 
 $(document).ready(function() {
 
-  walker.template = (function() {
+  walker.template = (function(hb) {
     var src = document.getElementById('maincontent_t').innerHTML;
     return hb.compile(src);
-  })();
+  })(Handlebars);
 
   $('#loginLink').click(function(event) {
     event.preventDefault();
