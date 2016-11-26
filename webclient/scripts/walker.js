@@ -99,12 +99,13 @@ var walker = (function($, fbase, hb) {
         })
     },
 
-    updateUI: function() {
-      // bind with Handlebars
+    template: (function() {
       var src = document.getElementById('maincontent_t').innerHTML;
-      var template = hb.compile(src);
-      var output = template(walker.viewModel);
+      return hb.compile(src);
+    })(),
 
+    updateUI: function() {
+      var output = walker.template(walker.viewModel);
       var placeholder = document.getElementById('maincontent');
       placeholder.innerHTML = output;
 
