@@ -100,11 +100,7 @@ var walker = (function($, fbase, hb) {
     },
 
     updateUI: function() {
-      // bind with Handlebars
-      var src = document.getElementById('maincontent_t').innerHTML;
-      var template = hb.compile(src);
-      var output = template(walker.viewModel);
-
+      var output = walker.template(walker.viewModel);
       var placeholder = document.getElementById('maincontent');
       placeholder.innerHTML = output;
 
@@ -123,6 +119,11 @@ var walker = (function($, fbase, hb) {
 })(jQuery, firebase, Handlebars);
 
 $(document).ready(function() {
+
+  walker.template = (function(hb) {
+    var src = document.getElementById('maincontent_t').innerHTML;
+    return hb.compile(src);
+  })(Handlebars);
 
   $('#loginLink').click(function(event) {
     event.preventDefault();
