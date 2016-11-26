@@ -1,2 +1,6 @@
 logs/
 ignore/
+
+*.log
+*.secret
+*.secret.js
